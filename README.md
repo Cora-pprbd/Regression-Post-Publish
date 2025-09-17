@@ -8,7 +8,7 @@
 Use the npx and Playwright tools to run the test command.
 
 ```Shell
-# Run from the project's root directory
+# Run from the file location for Regression-Post-Publish
 npx playwright test ExampleTest.spec.ts 
 # Or run in headed mode to see the browser
 npx playwright test ExampleTest.spec.ts --headed
