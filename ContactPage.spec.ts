@@ -3,7 +3,7 @@ import { debug } from 'console';
 
 
 test('ContactPage', async ({ page }) => {
-  await page.goto('await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
 
   ////////                          
   //Test contact page while not signed-in
@@ -19,10 +19,11 @@ test('ContactPage', async ({ page }) => {
   //Assert that the Contact Group dropdown is visible and contains the text
   await expect(page.getByLabel('Contact Group (required)')).toBeVisible();
   await expect(page.getByLabel('Contact Group (required)')).toContainText('---Select--- Building Permits Electrical Permits Mech/Plumbing Permits Building Inspectors Electrical Inspectors Conveyance Inspectors Mechanical Inspectors Plumbing Inspectors Contractor Licensing Plan Review Addressing Floodplain Public Relations Regional Building Attorney Finance/Accounting Website Errors');
+  await page.waitForTimeout(7000); 
 
   //Select Website Errors from the dropdown
   await page.getByLabel('Contact Group (required)').selectOption('techsoft'); //Select "Website Errors" from the Contact Group dropdown
-  await page.waitForTimeout(4000); 
+  await page.waitForTimeout(7000); 
 
   //Fill out the name, email, and phone boxes
   await page.getByRole('textbox', { name: 'Your Name (required)' }).click(); 
@@ -45,8 +46,8 @@ test('ContactPage', async ({ page }) => {
   await expect(page.getByRole('textbox', { name: 'Additional Info (required)' })).toHaveValue('The quick brown fox jumped over the lazy dogs.');
   
 //Click Send then verify that the form was sent
-//  await page.getByRole('button', { name: 'Send' }).click();
-//  await expect(page).toHaveTitle(/.*Thank you for contacting us/)
+  await page.getByRole('button', { name: 'Send' }).click();
+  await expect(page).toHaveTitle(/.*Thank you for contacting us/)
 
 ////////
 //Test contact page while signed-in
@@ -67,10 +68,11 @@ test('ContactPage', async ({ page }) => {
   //Assert that the Contact Group dropdown is visible and contains the text
   await expect(page.getByLabel('Contact Group (required)')).toBeVisible();
   await expect(page.getByLabel('Contact Group (required)')).toContainText('---Select--- Building Permits Electrical Permits Mech/Plumbing Permits Building Inspectors Electrical Inspectors Conveyance Inspectors Mechanical Inspectors Plumbing Inspectors Contractor Licensing Plan Review Addressing Floodplain Public Relations Regional Building Attorney Finance/Accounting Website Errors');
+  await page.waitForTimeout(7000); 
 
   //Select Website Errors from the dropdown
   await page.getByLabel('Contact Group (required)').selectOption('techsoft'); //Select from the Contact Group dropdown, Website Errors
-  await page.waitForTimeout(4000); 
+  await page.waitForTimeout(7000); 
 
   //Fill out the name, email, and phone boxes
   await page.getByRole('textbox', { name: 'Your Name (required)' }).click(); 
@@ -89,7 +91,7 @@ test('ContactPage', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Additional Info (required)' }).fill('The quick brown fox jumped over the lazy dogs.');
 
 //Click Send then verify that the form was sent
-//  await page.getByRole('button', { name: 'Send' }).click();
-//  await expect(page).toHaveTitle(/.*Thank you for contacting us/)
+  await page.getByRole('button', { name: 'Send' }).click();
+  await expect(page).toHaveTitle(/.*Thank you for contacting us/)
 
 });
