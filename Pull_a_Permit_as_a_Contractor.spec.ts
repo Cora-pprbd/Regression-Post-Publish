@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
 
   //Sign-in
   await page.getByRole('link', { name: 'Sign In' }).click();
@@ -10,10 +10,10 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('Temp@2023!!!');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.goto('https://alpha.pprbd.org/Account/Admin');
+  await page.goto('https://www.pprbd.org/Account/Admin');
 
   //Impersonate a contractor
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
   await page.getByRole('combobox', { name: 'Run As:' }).click();
   await page.getByRole('combobox', { name: 'Run As:' }).fill('rbdtest');
   await page.locator('#RunAsGoButton').click();

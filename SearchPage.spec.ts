@@ -5,7 +5,7 @@ const randomTimeout = timeouts[Math.floor(Math.random() * timeouts.length)];
 test('test', async ({ page }) => {
   await page.context().setExtraHTTPHeaders({'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36'});
 
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
 
   //Sign-in
   await page.getByRole('link', { name: 'Sign In' }).click();
@@ -14,7 +14,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('Pprbd2880!');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.goto('https://alpha.pprbd.org/Account/Contractor');
+  await page.goto('https://www.pprbd.org/Account/Contractor');
 
   //Go to Search
   await page.getByRole('link', { name: 'Search', exact: true }).click();

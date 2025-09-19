@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
   //Sign-in
   await page.getByRole('link', { name: 'Sign In' }).click();
   await page.getByRole('textbox', { name: 'User Name' }).click();

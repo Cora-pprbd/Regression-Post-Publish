@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
 
   //Sign-in
   await page.getByRole('link', { name: 'Sign In' }).click();
@@ -10,11 +10,11 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('Temp@2023!!!');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  await page.goto('https://alpha.pprbd.org/Account/Admin');
+  await page.goto('https://www.pprbd.org/Account/Admin');
 
   //Impersonate a homeowner
   
-  await page.goto('https://alpha.pprbd.org/');
+  await page.goto('https://www.pprbd.org/');
   await page.getByRole('combobox', { name: 'Run As:' }).click();
   await page.getByRole('combobox', { name: 'Run As:' }).fill('rbdtesthome');
   await page.locator('#RunAsGoButton').click();
@@ -22,7 +22,7 @@ test('test', async ({ page }) => {
     //Click on Pull New Permit
     
   await page.getByRole('link', { name: 'Pull New Permit' }).click();
-  await page.goto('https://alpha.pprbd.org/Permit/New');
+  await page.goto('https://www.pprbd.org/Permit/New');
   await page.getByText('Yes, I Agree', { exact: true }).click();
   await page.getByLabel('Select a Project:').selectOption('WHR');
   await page.getByRole('textbox', { name: 'Total Valuation:' }).click();
@@ -33,7 +33,7 @@ test('test', async ({ page }) => {
   await page.getByRole('radio', { name: 'Existing' }).check();
   await page.locator('#prompt-PV-Y').check();
   await page.getByText('Continue').click();
-  await page.goto('https://alpha.pprbd.org/Account/Cart');
+  await page.goto('https://www.pprbd.org/Account/Cart');
 
    //Cancel the permit in the cart
   await page.getByRole('button', { name: 'Cancel' }).click();
